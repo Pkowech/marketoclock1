@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Thank You - Market O'clock</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      background: #f0f8ff;
+      padding: 50px;
+    }
+    .thankyou-container {
+      background: #fff;
+      padding: 40px;
+      margin: 50px auto;
+      max-width: 500px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    h1 {
+      color: #27ae60;
+      font-size: 2.8em;
+    }
+    p {
+      margin-top: 20px;
+      font-size: 1.3em;
+      color: #555;
+    }
+    .countdown {
+      font-size: 2em;
+      margin: 30px 0;
+      color: #2c3e50;
+    }
+    .socials {
+      margin-top: 30px;
+    }
+    .socials a {
+      margin: 0 10px;
+      text-decoration: none;
+      font-size: 24px;
+      color: #2c3e50;
+    }
+    a:hover {
+      color: #27ae60;
+    }
+    @media(max-width: 600px) {
+      .countdown { font-size: 1.5em; }
+      h1 { font-size: 2em; }
+    }
+  </style>
+</head>
+<body>
+  <div class="thankyou-container">
+    <h1>Thank You!</h1>
+    <p>You’re officially on the Market O’clock waitlist!</p>
+
+    <div class="countdown">
+      Launching in <span id="countdown-timer">30</span> days!
+    </div>
+
+    <div class="socials">
+      <p>Follow us for updates:</p>
+      <a href="https://instagram.com" target="_blank">Instagram</a> |
+      <a href="https://facebook.com" target="_blank">Facebook</a> |
+      <a href="https://twitter.com" target="_blank">Twitter</a>
+    </div>
+
+    <br>
+    <a href="index.html" style="display:inline-block; margin-top:30px; padding:12px 25px; background:#27ae60; color:#fff; text-decoration:none; border-radius:5px;">Back to Home</a>
+  </div>
+
+  <script>
+    // Countdown Timer (Optional dynamic)
+    const launchDate = new Date();
+    launchDate.setDate(launchDate.getDate() + 30);
+    function updateCountdown() {
+      const now = new Date();
+      const timeLeft = launchDate - now;
+      const daysLeft = Math.ceil(timeLeft / (1000 * 60 * 60 * 24));
+      document.getElementById('countdown-timer').innerText = daysLeft > 0 ? daysLeft : 0;
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 86400000); // Update every 24hrs
+  </script>
+</body>
+</html>
